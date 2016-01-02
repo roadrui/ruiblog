@@ -1,0 +1,13 @@
+<!--继承base.html -->
+{% extends "admin/base.html" %}
+{% load i18n %}
+
+{% block title %}
+{{ title }}| {% trans 'OnroadRui的个人博客' %}
+{% endblock %}
+
+{% block branding %}
+    <h1 id="site-name">{% trans 'OnroadRui的个人博客' %}</h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
