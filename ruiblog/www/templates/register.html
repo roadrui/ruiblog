@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends '__base__.html' %}
 
 {% block title %}注册{% endblock %}
 
@@ -24,8 +24,8 @@ $(function () {
             submit: function (event) {
                 event.preventDefault();
                 var $form = $('#vm');
-                if(!this.name.trim()) {
-                   return $form.showFormError('请输入名字');
+                if (! this.name.trim()) {
+                    return $form.showFormError('请输入名字');
                 }
                 if (! validateEmail(this.email.trim().toLowerCase())) {
                     return $form.showFormError('请输入正确的Email地址');
@@ -37,7 +37,7 @@ $(function () {
                     return $form.showFormError('两次输入的口令不一致');
                 }
                 var email = this.email.trim().toLowerCase();
-                $form.postJSON('/ruiblog/registerapi', {
+                $form.postJSON('/api/users', {
                     name: this.name.trim(),
                     email: email,
                     passwd: CryptoJS.SHA1(email + ':' + this.password1).toString()
@@ -60,9 +60,9 @@ $(function () {
 {% block content %}
 
     <div class="uk-width-2-3">
-        
-      <form id="vm" action="/ruiblog/registerapi/" class="uk-form uk-form-stacked">
-      <div class="uk-alert uk-alert-danger uk-hidden"></div>
+        <h1>欢迎注册！</h1>
+        <form id="vm" v-on="submit: submit" class="uk-form uk-form-stacked">
+            <div class="uk-alert uk-alert-danger uk-hidden"></div>
             <div class="uk-form-row">
                 <label class="uk-form-label">名字:</label>
                 <div class="uk-form-controls">
