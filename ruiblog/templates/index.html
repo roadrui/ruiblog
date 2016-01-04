@@ -1,11 +1,10 @@
 {% extends "base.html" %}
-
 {% block title %}{% endblock %}
 
 {% block content %}
 
     {% if error %}
-        <h1 class='uk-width-medium-3-4'>没有相关文章题目</h1>
+        <h1 class='uk-width-medium-3-4'>没有相关题目的文章</h1>
     {% else %}
     <div class="uk-width-medium-3-4">
         {% for blog in blog_list %}
